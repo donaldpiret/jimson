@@ -45,6 +45,7 @@ module Jimson
         'params'  => args,
         'id'      => self.class.make_id
       })
+      puts post_data.inspect
       resp = RestClient.post(@url, post_data, @opts)
       if resp.nil? || resp.body.nil? || resp.body.empty?
         raise Client::Error::InvalidResponse.new(resp)
